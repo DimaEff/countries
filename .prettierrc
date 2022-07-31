@@ -4,5 +4,8 @@
   "printWidth": 100,
   "singleQuote": false,
   "trailingComma": "none",
-  "jsxBracketSameLine": true
+  "jsxBracketSameLine": true,
+  "importOrder": ["^react", "<THIRD_PARTY_MODULES>", "^@components/(.*)$", "^[./]" ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
 }
