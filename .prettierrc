@@ -11,7 +11,7 @@
   "importOrder": [
     "^react$",
     "<THIRD_PARTY_MODULES>",
-    "^@components/(.*)$",
+    "^@(shared|components)/(.+)$",
     "^[./]"
   ],
   "importOrderSeparation": true,
