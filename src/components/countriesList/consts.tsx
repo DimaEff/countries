@@ -1,6 +1,7 @@
-import { Button, TableCellProps } from "@mui/material";
+import { TableCellProps } from "@mui/material";
 
 import { Country } from "@components/countriesList/types";
+import Link from "@shared/components/link";
 import { Cell } from "@shared/components/table/types";
 
 export const FETCH_ALL_COUNTRIES = "FETCH_ALL_COUNTRIES";
@@ -18,7 +19,11 @@ export const getCountryCells = (country: Country): Cell[] => {
         ...TABLE_DATA_KEYS.map(key => country[key]?.toString()),
         {
             data: country["code"],
-            render: data => <Button onClick={() => console.log(data)}>more...</Button>,
+            render: data => (
+                <Link to={data} type={"button"}>
+                    more...
+                </Link>
+            ),
             props: {
                 align: "right",
             },
@@ -28,5 +33,5 @@ export const getCountryCells = (country: Country): Cell[] => {
 
 export const COMMON_TABLE_PROPS: TableCellProps = {
     align: TABLE_CELL_ALIGN,
-    sx: theme => ({ width: theme.spacing(20), maxWidth: theme.spacing(20) }),
+    sx: theme => ({ width: theme.spacing(5), maxWidth: theme.spacing(5) }),
 };
