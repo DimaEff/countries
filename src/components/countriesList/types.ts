@@ -11,6 +11,7 @@ export interface Country {
     region: string;
     subregion: string;
     area: number;
+    flagIcon: string;
     flagImageSrc: string | null;
     population: number;
     languages: string[] | null;

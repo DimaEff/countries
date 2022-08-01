@@ -1,5 +1,7 @@
 import React, { useMemo, useState } from "react";
 
+export const DEFAULT_PAGE_SIZE = 10;
+
 interface UsePaginationData<T> {
     paginationData: T[];
     page: number;
@@ -13,9 +15,8 @@ interface UsePaginationDataOptions<T> {
     reformatDataFn?: ReformatDataFn<T>;
     pageSize?: number;
 }
-
 function usePaginationData<T>(data?: any[], paginationDataOptions?: UsePaginationDataOptions<T>): UsePaginationData<T> {
-    const { pageSize = 10, reformatDataFn } = paginationDataOptions!;
+    const { pageSize = DEFAULT_PAGE_SIZE, reformatDataFn } = paginationDataOptions!;
 
     const [page, setPage] = useState(0);
     const startIndex = useMemo(() => page * pageSize, [page, pageSize]);

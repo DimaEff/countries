@@ -4,6 +4,9 @@
         "es2021": true,
         "jest": true
     },
+    "globals": {
+        "JSX": true
+    },
     "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:prettier/recommended", "prettier"],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {

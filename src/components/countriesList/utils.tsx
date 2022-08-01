@@ -16,6 +16,7 @@ export const reformatToCountry = (originalCountry: any): Country => {
         region: originalCountry.region,
         subregion: originalCountry.subregion,
         area: originalCountry.area,
+        flagIcon: originalCountry.flag,
         flagImageSrc: originalCountry.flags?.svg || null,
         population: originalCountry.population,
         languages: originalCountry.languages ? Object.values(originalCountry.languages) : null,
