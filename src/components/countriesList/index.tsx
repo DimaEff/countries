@@ -5,8 +5,8 @@ import { useQuery } from "@tanstack/react-query";
 
 import { fetchAllCountries } from "@components/countriesList/api";
 import {
+    COMMON_TABLE_PROPS,
     FETCH_ALL_COUNTRIES,
-    TABLE_CELL_ALIGN,
     TABLE_HEADER_COLUMNS,
     getCountryCells,
 } from "@components/countriesList/consts";
@@ -24,29 +24,33 @@ const CountriesList = () => {
     }
 
     return (
-        <Box sx={{ margin: 10 }}>
-            <TableContainer>
-                <Table>
-                    <TableHead>
-                        <TableRow cells={TABLE_HEADER_COLUMNS} commonCellsProps={{ align: TABLE_CELL_ALIGN }} />
-                    </TableHead>
-                    <TableBody>
-                        {paginationData.map(country => (
-                            <TableRow
-                                key={country.code}
-                                cells={getCountryCells(country)}
-                                commonCellsProps={{ align: TABLE_CELL_ALIGN }}
-                            />
-                        ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
-            <TablePagination
-                count={data?.length || 0}
-                page={page}
-                rowsPerPage={DEFAULT_PAGE_SIZE}
-                onPageChange={(e, p) => setPage(p)}
-            />
+        <Box sx={{ width: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
+            <Box sx={theme => ({ margin: 10, minWidth: theme.spacing(100) })}>
+                <TableContainer>
+                    <Table size={"small"}>
+                        <TableHead>
+                            <TableRow cells={TABLE_HEADER_COLUMNS} commonCellsProps={COMMON_TABLE_PROPS} />
+                        </TableHead>
+                        <TableBody>
+                            {paginationData.map(country => (
+                                <TableRow
+                                    key={country.code}
+                                    cells={getCountryCells(country)}
+                                    commonCellsProps={COMMON_TABLE_PROPS}
+                                />
+                            ))}
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+                <TablePagination
+                    rowsPerPageOptions={[DEFAULT_PAGE_SIZE]}
+                    count={data?.length || 0}
+                    page={page}
+                    rowsPerPage={DEFAULT_PAGE_SIZE}
+                    onPageChange={(e, p) => setPage(p)}
+                    component={"div"}
+                />
+            </Box>
         </Box>
     );
 };

@@ -15,6 +15,7 @@ interface UsePaginationDataOptions<T> {
     reformatDataFn?: ReformatDataFn<T>;
     pageSize?: number;
 }
+// should not use big(> 30) pageSize
 function usePaginationData<T>(data?: any[], paginationDataOptions?: UsePaginationDataOptions<T>): UsePaginationData<T> {
     const { pageSize = DEFAULT_PAGE_SIZE, reformatDataFn } = paginationDataOptions!;
 

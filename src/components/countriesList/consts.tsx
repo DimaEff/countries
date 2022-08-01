@@ -5,7 +5,6 @@ import { Cell } from "@shared/components/table/types";
 
 export const FETCH_ALL_COUNTRIES = "FETCH_ALL_COUNTRIES";
 
-export const PAGE_SIZE = 10;
 export const TABLE_CELL_ALIGN: TableCellProps["align"] = "left";
 export const TABLE_HEADER_COLUMNS: Cell[] = [
     "Flag",
@@ -25,4 +24,9 @@ export const getCountryCells = (country: Country): Cell[] => {
             },
         },
     ];
+};
+
+export const COMMON_TABLE_PROPS: TableCellProps = {
+    align: TABLE_CELL_ALIGN,
+    sx: theme => ({ width: theme.spacing(20), maxWidth: theme.spacing(20) }),
 };
