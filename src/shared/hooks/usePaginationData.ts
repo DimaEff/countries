@@ -1,9 +1,9 @@
-import { Dispatch, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 
 interface UsePaginationData<T> {
     paginationData: T[];
     page: number;
-    setPage: Dispatch<number>;
+    setPage: React.Dispatch<React.SetStateAction<number>>;
 }
 
 // eslint-disable-next-line no-unused-vars
@@ -21,12 +21,13 @@ function usePaginationData<T>(data?: any[], paginationDataOptions?: UsePaginatio
     const startIndex = useMemo(() => page * pageSize, [page, pageSize]);
     const endIndex = useMemo(() => (page + 1) * pageSize, [page, pageSize]);
 
-    const splicedData = useMemo(() => (data ? data.splice(startIndex, endIndex) : []), [data, startIndex, endIndex]);
+    const splicedData = useMemo(() => (data ? data.slice(startIndex, endIndex) : []), [data, endIndex, startIndex]);
     const paginationData: T[] = useMemo(
         () => (reformatDataFn ? splicedData.map(reformatDataFn) : (splicedData as T[])),
-        [splicedData, reformatDataFn]
+        [reformatDataFn, splicedData]
     );
 
+    console.log(page, paginationData);
     return { paginationData, page, setPage };
 }
 
