@@ -1,1 +1,1 @@
-export const TABLE_DATA_PLUG = "-";
+export const TABLE_DATA_BLANK = "-";
