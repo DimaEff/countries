@@ -1,5 +1,6 @@
 import React from "react";
 
+import "@arcgis/core/assets/esri/themes/light/main.css";
 import { Box } from "@mui/material";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "normalize.css";

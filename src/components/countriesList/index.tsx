@@ -12,6 +12,7 @@ import {
 } from "@components/countriesList/consts";
 import { Country } from "@components/countriesList/types";
 import { reformatToCountry } from "@components/countriesList/utils";
+import FullscreenLoader from "@shared/components/fullscreenLoader";
 import { TableRow } from "@shared/components/table";
 import usePaginationData, { DEFAULT_PAGE_SIZE } from "@shared/hooks/usePaginationData";
 
@@ -20,7 +21,7 @@ const CountriesList = () => {
     const { paginationData, page, setPage } = usePaginationData<Country>(data, { reformatDataFn: reformatToCountry });
 
     if (isLoading) {
-        return <div>Loading...</div>;
+        return <FullscreenLoader />;
     }
 
     return (
